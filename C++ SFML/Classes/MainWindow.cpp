@@ -6,6 +6,7 @@ sf::VideoMode* MainWindow::videoMode = nullptr;
 uint MainWindow::width = 0;
 uint MainWindow::height = 0;
 uint MainWindow::notec = 0;
+bool MainWindow::open = true;
 
 const sf::String MainWindow::title = "To Do List";
 const sf::Color MainWindow::fill = { 0,0,0,0 }; // some color
@@ -30,6 +31,7 @@ void MainWindow::initWindow()
 	// 16 bits for 4 canals means by 4 bits per canal [0 - 15]
 
 	pWin->setFramerateLimit(60);
+	pWin->setActive(true);
 }
 
 void MainWindow::initVariables()
@@ -57,11 +59,20 @@ void MainWindow::pollEvents()
 		switch (ev.type) {
 		case sf::Keyboard::Escape:
 			pWin->close();
+			open = false;
+			break;
+		case sf::Event::Closed:
+			pWin->close();
+			open = false;
 			break;
 		default:
 			break;
 		}
 	}
+}
+
+bool MainWindow::isOpen() {
+	return open;
 }
 
 void MainWindow::addNote(toDo* thing)
