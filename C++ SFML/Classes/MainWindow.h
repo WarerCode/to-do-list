@@ -13,6 +13,7 @@ class MainWindow : public sf::RenderWindow
 {
 private:
 	static sf::RenderWindow* pWin;
+	static bool open;
 
 	static uint width;
 	static uint height;
@@ -33,6 +34,7 @@ public:
 	static void initVariables();
 
 	static void pollEvents();
+	static bool isOpen();
 	static void render();
 	static void addNote(toDo* thing);
 };
