@@ -1,5 +1,5 @@
-#ifndef BUTTON_H
-#define BUTTON_H
+#ifndef PUSHBUTTON_H
+#define PUSHBUTTON_H
 
 #include<SFML/Graphics.hpp>
 
@@ -13,6 +13,8 @@ private:
 	rect* buttonRect;
 
 	vec2i* size;
+	static const float outlineThickness;
+	static const color line;
 	static const color on;
 	static const color off;
 
