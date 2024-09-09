@@ -20,19 +20,22 @@ private:
 	static uint notec;
 
 	static sf::VideoMode* videoMode;
+	static sf::Texture background;
+	static sf::Sprite back;
 	static const sf::String title;
 	static const sf::Color fill;
 
 	static std::map<id, sf::RectangleShape*> notes;
 
+	// Construct
+	static void initWindow();
+	static void initTexture();
+	static void initVariables();
+	static void initNotes();
+
 public:
 	MainWindow();
 	virtual ~MainWindow();
-
-	// Construct
-	static void initWindow();
-	static void initVariables();
-	static void initNotes();
 
 	static void pollEvents();
 	static bool isOpen();

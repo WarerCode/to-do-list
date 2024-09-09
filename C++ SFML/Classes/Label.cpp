@@ -7,7 +7,7 @@ sf::Font Label::font;
 void Label::initFont() {
 	if (!font.loadFromFile("src/fonts/Deledda Open Thin.ttf")) {
 		std::cerr << "\nLABEL::INITFONT::failed to load font\n" << std::endl;
-		exit(EXIT_FAILURE);
+		std::exit(EXIT_FAILURE);
 	}
 }
 
