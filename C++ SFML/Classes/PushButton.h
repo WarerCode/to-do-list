@@ -7,7 +7,7 @@ typedef sf::Vector2i vec2i;
 typedef sf::RectangleShape rect;
 typedef sf::Color color;
 
-class PushButton : rect // pushButton
+class PushButton : public rect // pushButton
 {
 private:
 	rect* buttonRect;

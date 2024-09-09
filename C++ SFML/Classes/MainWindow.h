@@ -32,11 +32,12 @@ public:
 	// Construct
 	static void initWindow();
 	static void initVariables();
+	static void initNotes();
 
 	static void pollEvents();
 	static bool isOpen();
 	static void render();
-	static void addNote(toDo* thing);
+	static void addNote();
 };
 
 #endif
