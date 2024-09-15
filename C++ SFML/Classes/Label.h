@@ -12,11 +12,14 @@ private:
 	sf::RectangleShape* borders;
 	static const sf::Color background;
 	static sf::Font font;
+	sf::Text text;
+	sf::Vector2f pos;
 
 	void initFont();
+	void initText();
 
 public:
-	Label(std::string _note = "");
+	Label(std::string _note = "", sf::Vector2f _pos);
 	virtual ~Label();
 
 	void rewrite(std::string newNote);

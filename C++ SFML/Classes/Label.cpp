@@ -11,10 +11,17 @@ void Label::initFont() {
 	}
 }
 
-Label::Label(std::string _note) {
+void Label::initText() {
+	this->text.setCharacterSize(TEXT_SIZE);
+	this->text.setPosition(this->pos);
+}
+
+Label::Label(std::string _note, sf::Vector2f _pos) {
+	this->pos = _pos;
+
 	this->note = _note;
-	this->borders = new sf::RectangleShape(sf::Vector2f(	// 70 % of window in the width
-		WINDOW_WIDTH * EPSILONE, WINDOW_HEIGHT / DELTA));	// 5% (1/20) of window height
+	this->borders = new sf::RectangleShape(sf::Vector2f(		// 70 % of window in the width
+		WINDOW_WIDTH * EPSILONE, WINDOW_HEIGHT / (2 * DELTA)));	// 5% (1/20) of window height
 	this->initFont();
 }
 
@@ -28,6 +35,7 @@ void Label::rewrite(std::string newNote) {
 
 void Label::draw(sf::RenderWindow* pWin) {
 	pWin->draw(*this->borders);
+	pWin->draw(this->text);
 }
 
 std::string Label::getNote() {
